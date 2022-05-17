@@ -3,40 +3,40 @@ using Inventory.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Inventory.Controllers
+namespace Inventories.Controllers
 {
   public class InventoriesController : Controller
   {
-    // private readonly InventoryContext _db;
+    private readonly InventoryContext _db;
 
-    // public AnimalsController(AnimalShelterContext db)
-    // {
-    //   _db = db;
-    // }
-    // public ActionResult Details(int id)
-    // {
-    //   Animal thisAnimal =_db.Animals.FirstOrDefault(animal=>animal.AnimalId==id);
-    //   return View(thisAnimal);
-    // }
+    public InventoriesController(InventoryContext db)
+    {
+      _db = db;
+    }
+    public ActionResult Details(int id)
+    {
+      Card thisCard =_db.Inventories.FirstOrDefault(card=>card.CardId==id);
+      return View(thisCard);
+    }
 
-    // public ActionResult Index()
-    // {
-    //   List<Animal> model = _db.Animals.ToList().OrderBy(x => x.Type).ThenBy(x => x.Date).ToList();
+    public ActionResult Index()
+    {
+      List<Card> model = _db.Inventories.ToList();
       
-    //   return View(model);
-    // }
+      return View(model);
+    }
 
-    // public ActionResult Create()
-    // {
-    //     return View();
-    // }
+    public ActionResult Create()
+    {
+        return View();
+    }
 
-    // [HttpPost]
-    // public ActionResult Create(Inventory inventory)
-    // {
-    //   _db.Inventories.Add(inventory);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult Create(Card card)
+    {
+      _db.Inventories.Add(card);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }

@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Inventory.Models.Card
+<h2> Add a new Card</h2>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Type) 
+  @Html.TextBoxFor(model => model.Type)
+  @Html.LabelFor(model => model.Customer) 
+  @Html.TextBoxFor(model => model.Customer)
+  @Html.LabelFor(model => model.ExpirationDate) 
+  @Html.TextBoxFor(model => model.ExpirationDate)
+  <input type="submit" value="add card" />
+  
+}
+<p>@Html.ActionLink("List Of All Cards","Index")</p>
+
+
+
+

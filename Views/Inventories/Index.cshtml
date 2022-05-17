@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+@using Inventory.Models
+@model List<Inventory.Models.Card>;
+  <h1>Cards</h1>
+  <ol>
+    @foreach (Card card in Model)
+    {
+      <li>@Html.ActionLink($"{card.Customer}","Details",new{id = card.CardId})</li>
+
+    }
+    
+  </ol>
+
+
+<p>@Html.ActionLink("Add a new card","Create")</p>

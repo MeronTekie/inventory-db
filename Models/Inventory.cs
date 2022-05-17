@@ -2,7 +2,7 @@ using System;
 
 namespace Inventory.Models
 {
-  public class Inventory
+  public class Card
   
   {
     public int CardId{ get; set; }
