@@ -1,3 +1,9 @@
 @{
   Layout = "_Layout";
 }
+@model Inventory.Models.Card
+<h3>Card Deatils</h3>
+<h3>@Html.DisplayNameFor(model => model.Type):@Html.DisplayFor(model =>model.Type)</h3>
+<h3>@Html.DisplayNameFor(model => model.Customer):@Html.DisplayFor(model =>model.Customer)</h3>
+<h3>@Html.DisplayNameFor(model => model.ExpirationDate):@Html.DisplayFor(model => model.ExpirationDate)</h3>
+<p>@Html.ActionLink("List Of Cards","Index")</
